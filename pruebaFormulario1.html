@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pruebaForm</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+	  $( function() {
+	  	//cualquier elemento de "id" que comience con "ejemplo"
+	  	//"[id^=ejemplo]"
+	  	$('#textos').sortable({
+	  		revert:true
+	  	});
+	    $( '#copiar' ).draggable({
+	    	connectToSortable :'#textos',
+	    	helper:'clone',
+	    	revert:'invalid'
+	    });
+	    $('ul, li').disableSelection();
+	  });
+  </script>
+</head>
+<body>
+	<ul id="copiar">		
+		<li id="labela"><label id="labela">copiar</label><br></li>
+	</ul>
+	<ul id="textos">
+		<li id="text"><label name="" id="text">Texto</label><br></li>
+		<li id="number"><label name="" id="number">Numerico</label><br></li>
+		<li id="date"><label name="" id="date">Fecha</label><br></li>
+		<li id="label_4"><label name="" id="label_4">Fecha y hora</label><br></li>
+		<li id="email"><label name="" id="email">Email</label><br></li>
+	</ul>
+	<button id="exe">ejecutar</button>
+
+	<script>
+		$(function(){
+			$('#exe').click(function(){
+	//append -> inserta al final
+	//prepend -> inserta al inicio
+				//$('label').prepend('hola');
+	//$('ol').append($('ol li:first')); -> mueve el primer elemento de la lista al final de la lista
+	//$('label:last').text(); -> obtiene el texto del label
+				var clone=$('label:last').attr('id');
+				console.log(clone);
+				//$('h1').append(clone);
+				//$('label').prepend($('label:last'));
+	//$('label:last').remove(); -> elimina el ultimo elemento de la lista
+			//$('label:last').remove();
+			});
+		});
+	</script>
+</body>
+</html>

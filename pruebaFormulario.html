@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pruebaForm</title>
+	<meta charset="utf-8" />
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+	<!--
+	<h1><label for="idPrueba1">Primer campo</label></h1>
+	<label for="idPrueba1">tipo de dato -</label>
+	<select name="tipos" for="idPrueba1">
+		<option value="" selected>Selecciona</option>
+		<option value="text">Texto</option>
+		<option value="number">Numerico</option>
+		<option value="date">Fecha</option>
+		<option value="email">Email</option>
+	</select>
+	<br>
+	<label for="idPrueba2">prueba 2    -</label>
+	<input name="inputPrueba2" id="idPrueba2" type="date" value="">
+	-->
+	
+	
+	<form>
+		<p>Nombre:<br>
+		<input type="Text" name="nombre">
+		</p>
+		<p>Edad:<br>
+		<input type="Text" name="Edad">
+		</p>
+		<p>Compra:<br>
+		<input type="Text" name="compra1">
+		<p><a href="#" id="mascampos">Más campos</a></p>
+		<p><input type=submit value="enviar"></p>
+	</form>
+	
+	
+	<script>
+		/*jQuery.fn.generaNuevosCampos = function(etiqueta, nombreCampo, indice){
+		   $(this).each(function(){
+		      elem = $(this);
+		      elem.data("etiqueta",etiqueta);
+		      elem.data("nombreCampo",nombreCampo);
+		      elem.data("indice",indice);
+      
+		      elem.click(function(e){
+		         e.preventDefault();
+		         elem = $(this);
+		         etiqueta = elem.data("etiqueta");
+		         nombreCampo = elem.data("nombreCampo");
+		         indice = elem.data("indice");
+		         texto_insertar = '<p>' + etiqueta + ' ' + indice + ':<br><input type="text" name="' + nombreCampo + indice + '" /></p>';
+		         indice ++;
+		         elem.data("indice",indice);
+		         nuevo_campo = $(texto_insertar);
+		         elem.before(nuevo_campo);
+ 		     });
+		   });
+		   return this;
+		}
+
+		$(document).ready(function(){
+		   $("#mascampos").generaNuevosCampos("Compra", "compra", 2);
+		});*/
+		
+		var tipos=[];
+		
+		$('input[name="inputPrueba"][value!=""][id!=""]').each(function(){
+		tipos.push($(this).attr('id'));
+		tipos.push($(this).attr('type'));
+		tipos.push($(this).attr('value'));
+		tipos.push($(this).attr('name'));
+		});
+		
+		// $("input").each(function(){
+		// 	var name = $(this).attr("name");
+		// 	var id = $(this).attr("id");
+		// 	var value = $(this).attr("value");
+		// 	var type = $(this).attr("type");
+			
+			
+		// 	if(((name) && name!=="") && ((id) && id!=="") && ((value) && value!=="")){
+		// 	// tipos.push[input = {"name" : name, "value" : value, "id" : id, "type" : type}];
+		// 	tipos.push(name);
+		// 	tipos.push(id);
+		// 	tipos.push(value);
+		// 	tipos.push(type);
+		// 	}
+		// });
+
+		console.log("tamaño del arreglo"+tipos.length);
+		console.log("variable"+tipos);
+	
+/*	var personas = [
+  persona1 = {"nombre": "Luis","Edad": "32"},
+  persona2 = {"nombre": "Marcos","Edad": "15"},
+]
+
+
+personas.forEach(function(persona, index) {
+  console.log("Persona " + index + " | Nombre: " + persona.nombre + " Edad: " + persona.Edad)
+});
+*/
+	</script>
+</body>
+</html>
