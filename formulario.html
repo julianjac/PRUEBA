@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formulario</title>
+    <style>
+         #formulario, #elementos {
+            border: 1px solid #1f00ff;
+            width: 142px;
+            min-height: 20px;
+            padding: 5px 0 0 0;
+            list-style-type: none;
+            float: left;
+            margin-right: 10px;
+        }
+        #formulario li{
+            margin: 0 5px 5px 5px;
+            padding: 5px;
+            font-size: 1.2em;
+            width: 120px;
+        }
+        ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
+        li { margin: 5px; padding: 5px; width: 150px; }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $('[id^=formulario]').sortable({
+                revert:true
+            });
+            $( '#numero, #texto, #fecha' ).draggable({
+                connectToSortable :'[id^=formulario]',
+                helper:'clone',
+                revert:'invalid'
+            });
+            $('ul, li').disableSelection();
+        });
+    </script>
+</head>
+<body>
+<ul id="elementos" >
+    <li id="texto"><label >texto</label><br></li>
+    <li id="numero"><label >numero</label><br></li>
+    <li id="fecha"><label >fecha</label><br></li>
+
+<ul id="formulario" class="connectedSortable">
+
+</ul>
+
+<button id="exe">ejecutar</button>
+
+<script>
+    $(function(){
+        $('#exe').click(function(){
+            //append -> inserta al final
+            //prepend -> inserta al inicio
+            //$('label').prepend('hola');
+            //$('ol').append($('ol li:first')); -> mueve el primer elemento de la lista al final de la lista
+            //$('label:last').text(); -> obtiene el texto del label
+            $("#formulario li").each(function(){
+                console.log($(this).text());
+            })
+            //$('h1').append(clone);
+            //$('label').prepend($('label:last'));
+            //$('label:last').remove(); -> elimina el ultimo elemento de la lista
+            //$('label:last').remove();
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>pruebaForm</title>
+	<title>formuario 1</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -10,7 +10,7 @@
 	  $( function() {
 	  	//cualquier elemento de "id" que comience con "ejemplo"
 	  	//"[id^=ejemplo]"
-	  	$('#textos').sortable({
+	  	$('[id^=texto]').sortable({
 	  		revert:true
 	  	});
 	    $( '#copiar' ).draggable({
@@ -18,19 +18,19 @@
 	    	helper:'clone',
 	    	revert:'invalid'
 	    });
-	    $('ul, li').disableSelection();
+	    $('ul, li').enableSelection();
 	  });
   </script>
 </head>
 <body>
 	<ul id="copiar">		
-		<li id="labela"><label id="labela">copiar</label><br></li>
+		<li id="copiar"><label id="copiar">copiar</label><br></li>
 	</ul>
 	<ul id="textos">
 		<li id="text"><label name="" id="text">Texto</label><br></li>
 		<li id="number"><label name="" id="number">Numerico</label><br></li>
 		<li id="date"><label name="" id="date">Fecha</label><br></li>
-		<li id="label_4"><label name="" id="label_4">Fecha y hora</label><br></li>
+		<li id="fecha_hora"><label name="" id="fechaHora">Fecha y hora</label><br></li>
 		<li id="email"><label name="" id="email">Email</label><br></li>
 	</ul>
 	<button id="exe">ejecutar</button>
