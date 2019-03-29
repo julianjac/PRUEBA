@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>formulario</title>
     <style>
-         #formulario, #elementos {
+         .formulario, .elementos {
             border: 1px solid #1f00ff;
             width: 142px;
             min-height: 20px;
@@ -13,7 +13,7 @@
             float: left;
             margin-right: 10px;
         }
-        #formulario li{
+        .formulario li{
             margin: 0 5px 5px 5px;
             padding: 5px;
             font-size: 1.2em;
@@ -26,11 +26,11 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $( function() {
-            $('[id^=formulario]').sortable({
+            $('.formulario').sortable({
                 revert:true
             });
             $( '#numero, #texto, #fecha' ).draggable({
-                connectToSortable :'[id^=formulario]',
+                connectToSortable :'.formulario',
                 helper:'clone',
                 revert:'invalid'
             });
@@ -39,15 +39,24 @@
     </script>
 </head>
 <body>
-<ul id="elementos" >
-    <li id="texto"><label >texto</label><br></li>
-    <li id="numero"><label >numero</label><br></li>
-    <li id="fecha"><label >fecha</label><br></li>
-</ul>
+<!--<ul id="elementos" >-->
+    <!--<li id="texto"><label >texto</label><br></li>-->
+    <!--<li id="numero"><label >numero</label><br></li>-->
+    <!--<li id="fecha"><label >fecha</label><br></li>-->
+<!--</ul>-->
 
-<ul id="formulario" class="connectedSortable">
+<!--<ul id="formulario" class="connectedSortable">-->
 
-</ul>
+<!--</ul>-->
+<div class="elementos">
+    <ul id="elementos" >
+        <li id="texto"><label >texto</label><br></li>
+        <li id="numero"><label >numero</label><br></li>
+        <li id="fecha"><label >fecha</label><br></li>
+    </ul>
+</div>
+
+<div class="formulario"></div>
 
 <button id="exe">ejecutar</button>
 
@@ -60,8 +69,8 @@
             //$('label').prepend('hola');
             //$('ol').append($('ol li:first')); -> mueve el primer elemento de la lista al final de la lista
             //$('label:last').text(); -> obtiene el texto del label
-            $("#formulario li").each(function(){
-                console.log($(this).text());
+            $(".formulario li").each(function(){
+                console.log($(this).text()+$(this).type());
             })
             //$('h1').append(clone);
             //$('label').prepend($('label:last'));
