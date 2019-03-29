@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>formulario</title>
+    <title>formulario_sortable_dragable</title>
     <style>
-         #formulario, #elementos {
+        #formulario, #elementos {
             border: 1px solid #1f00ff;
             width: 142px;
             min-height: 20px;
@@ -24,13 +24,13 @@
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $( function() {
-            $('[id^=formulario]').sortable({
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.prueba-clase').sortable({
                 revert:true
             });
             $( '#numero, #texto, #fecha' ).draggable({
-                connectToSortable :'[id^=formulario]',
+                connectToSortable :'.prueba-clase',
                 helper:'clone',
                 revert:'invalid'
             });
@@ -40,12 +40,12 @@
 </head>
 <body>
 <ul id="elementos" >
-    <li id="texto"><label >texto</label><br></li>
-    <li id="numero"><label >numero</label><br></li>
-    <li id="fecha"><label >fecha</label><br></li>
+    <li id="texto"><label >organigrama</label><br></li>
+    <li id="numero"><label >usuario</label><br></li>
+    <li id="fecha"><label >documento</label><br></li>
 </ul>
 
-<ul id="formulario" class="connectedSortable">
+<ul id="formulario" class="prueba-clase">
 
 </ul>
 
@@ -60,8 +60,10 @@
             //$('label').prepend('hola');
             //$('ol').append($('ol li:first')); -> mueve el primer elemento de la lista al final de la lista
             //$('label:last').text(); -> obtiene el texto del label
-            $("#formulario li").each(function(){
-                console.log($(this).text());
+            $(".prueba-clase li").each(function(){
+                var clone=$(this).text();
+                console.log(clone);
+                // console.log($(this).attr('id'));
             })
             //$('h1').append(clone);
             //$('label').prepend($('label:last'));
