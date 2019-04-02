@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>agregando elementos</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var contador = 0;
+            //se ocultan los elmentos que no necesitamos
+            $("#texto, #numero, #fecha").hide();
+            $("#agregar").attr('disabled',true);
+
+            $('#boton_texto').click( function () {
+                $("#texto").show();
+
+                $("#boton_agregar_texto").click( function (){
+                    var nombreText = $("#nombre_text").val();
+                        console.log(nombreText);
+                        $("#metadatos").append($("<div class='" + nombreText + "' id='id" + nombreText + "'></div>"))
+                        $("#id" + nombreText).append($("<label class='" + nombreText + "'></label>").text(nombreText));
+                    if($("#requeridoText").prop("checked")) {
+                        $("#id" + nombreText).append($("<input type='text' required class='" + nombreText + "' id='" + nombreText + "_input'/>"));
+                    }else{
+                        $("#id" + nombreText).append($("<input type='text' class='" + nombreText + "' id='" + nombreText + "_input'/>"));
+                    }
+                        $("#id" + nombreText).append($("<button id='eliminar" + nombreText + "' class='" + nombreText + "'>eliminar</button>"));
+                    $("#eliminar"+nombreText).on('click', function (){
+                        $("."+nombreText).remove();
+                    });
+                    $("#nombre_text").val('');
+                    $("#texto").hide();
+                    $('#agregar').attr('disabled', false);
+                });
+
+            });
+
+            $('#boton_numero').on('click', function () {
+                $("#numero").show();
+                $("#boton_agregar_numero").on('click', function (){
+                    var nombreNum = $("#nombre_numero").val();
+                    console.log(nombreNum);
+                    $("#metadatos").append($("<div class='"+nombreNum+"' id='id"+nombreNum+"'></div>"))
+                    $("#id"+nombreNum).append($("<label class='"+nombreNum+"'></label>").text(nombreNum));
+                    if($("#requeridoNum").prop("checked")) {
+                        $("#id" + nombreNum).append($("<input class='" + nombreNum + "' type='number' required id='" + nombreNum + "_input'/>"));
+                    }else{
+                        $("#id" + nombreNum).append($("<input class='" + nombreNum + "' type='number' id='" + nombreNum + "_input'/>"));
+                    }
+                    $("#id"+nombreNum).append($("<button id='eliminar"+nombreNum+"' class='"+nombreNum+"'>eliminar</button><br class='"+nombreNum+"'/>"));
+                    $("#eliminar"+nombreNum).on('click', function (){
+                        $("."+nombreNum).remove();
+                    });
+                    $("#nombre_text").val('');
+                    $("#numero").hide();
+                    $('#agregar').attr('disabled', false);
+                });
+            });
+
+            $('#boton_fecha').on('click',function () {
+                $("#fecha").show();
+                $("#boton_agregar_fecha").on('click', function (){
+                    var nombreDat = $("#nombre_fecha").val();
+                    console.log(nombreDat);
+                    $("#metadatos").append($("<div class='"+nombreDat+"' id='id"+nombreDat+"'></div>"))
+                    $("#id"+nombreDat).append($("<label class='"+nombreDat+"'></label>").text(nombreDat));
+                    if($("#requeridoDat").prop("checked")) {
+                        $("#id" + nombreDat).append($("<input class='" + nombreDat + "' type='date' required id='" + nombreDat + "_input'/>"));
+                    }else{
+                        $("#id" + nombreDat).append($("<input class='" + nombreDat + "' type='date' id='" + nombreDat + "_input'/>"));
+
+                    }
+                    $("#id"+nombreDat).append($("<button id='eliminar"+nombreDat+"' class='"+nombreDat+"'>eliminar</button><br class='"+nombreDat+"'/>"));
+                    $("#eliminar"+nombreDat).on('click', function (){
+                        $("."+nombreDat).remove();
+                    });
+                    $("#nombre_text").val('');
+                    $("#fecha").hide();
+                    $('#agregar').attr('disabled', false);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<h1>Agregando metadatos</h1>
+<div>
+    <h3>Selecciona que elementos vas a agregar</h3>
+    <button id="boton_texto">Agregar campo de texto</button>
+    <button id="boton_numero">Agregar campo numerico</button>
+    <button id="boton_fecha">Agregar campo de fecha</button>
+</div>
+<div id="texto">
+    <h3>Agregar un campo de texto</h3>
+    <input type="text" id="nombre_text" placeholder="nombre de la etiqueta"/>
+    <label> Requerido</label>
+    <input type="checkbox" id="requeridoText" value="Requerido">
+    <button id="boton_agregar_texto">Agregar campo de texto</button>
+
+</div>
+<div id="numero">
+    <h3>Agregar un campo numerico</h3>
+    <input type="text" id="nombre_numero" placeholder="nombre de la etiqueta"/>
+    <label> Requerido</label>
+    <input type="checkbox" id="requeridoNum" value="Requerido">
+    <button id="boton_agregar_numero">Agregar campo numerico</button>
+</div>
+<div id="fecha">
+    <h3>Agregar un campo de fecha</h3>
+    <input type="text" id="nombre_fecha" placeholder="nombre de la etiqueta"/>
+    <label> Requerido</label>
+    <input type="checkbox" id="requeridoDat" value="Requerido">
+    <button id="boton_agregar_fecha">Agregar campo de fecha</button>
+</div>
+<br><br>
+<div id="metadatos"></div>
+
+<button id="agregar">Agregar elementos</button>
+
+</body>
+</html>

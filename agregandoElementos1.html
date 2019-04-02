@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>agregando elementos</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        function texto() {
+            var nombre = $("#nombre_text").val();
+            // if(nombre != ''){
+            //     $('#boton_texto').attr('disabled',false);
+            $("#metadatos").append($("<label></label>").text(nombre));
+            $("#metadatos").append($("<br><input type='text' id='" + nombre + "_input'/>"));
+            $("#nombre_text").val('');
+            // }
+
+            // $('#boton_texto').attr('disabled', true);
+            // console.log('el campo no puede estar vacio');
+        }
+        function numero() {
+            var nombre = $("#nombre_numero").val();
+            console.log(nombre);
+            $("#metadatos").append($("<label></label>").text(nombre));
+            $("#metadatos").append($("<br><input type='number' id='" + nombre + "_input'/>"));
+        }
+        function fecha() {
+            var nombre = $("#nombre_fecha").val();
+            console.log(nombre);
+            $("#metadatos").append($("<label></label>").text(nombre));
+            $("#metadatos").append($("<br><input type='date' id='" + nombre + "_input'/>"));
+        }
+    </script>
+</head>
+<body>
+<h1>Agregando metadatos</h1>
+<div>
+    <h3>Agregar un campo de texto</h3>
+    <input type="text" id="nombre_text" placeholder="nombre de la etiqueta"/>
+    <button onclick="texto()" id="boton_texto">Agregar campo de texto</button>
+</div>
+
+<div>
+    <h3>Agregar un campo numerico</h3>
+    <input type="text" id="nombre_numero" placeholder="nombre de la etiqueta"/>
+    <button onclick="numero()" id="boton_numero">Agregar campo numerico</button>
+</div>
+
+<div>
+    <h3>Agregar un campo de fecha</h3>
+    <input type="text" id="nombre_fecha" placeholder="nombre de la etiqueta"/>
+    <button onclick="fecha()" id="boton_fecha">Agregar campo de fecha</button>
+</div>
+<br><br>
+<div id="metadatos"></div>
+</body>
+</html>
