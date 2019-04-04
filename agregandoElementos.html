@@ -32,7 +32,6 @@
                     $("#texto").hide();
                     $('#agregar').attr('disabled', false);
                 });
-
             });
 
             $('#boton_numero').on('click', function () {
@@ -60,12 +59,16 @@
             $('#boton_fecha').on('click',function () {
                 $("#fecha").show();
                 $("#boton_agregar_fecha").on('click', function (){
+                    var mini = $("#minimo").val();
                     var nombreDat = $("#nombre_fecha").val();
                     console.log(nombreDat);
                     $("#metadatos").append($("<div class='"+nombreDat+"' id='id"+nombreDat+"'></div>"))
                     $("#id"+nombreDat).append($("<label class='"+nombreDat+"'></label>").text(nombreDat));
                     if($("#requeridoDat").prop("checked")) {
                         $("#id" + nombreDat).append($("<input class='" + nombreDat + "' type='date' required id='" + nombreDat + "_input'/>"));
+                        if(mini != ''){
+                            $("#id" + nombreDat).append($("<input class='" + nombreDat + "' type='date' required minlength='"+mini+"' id='" + nombreDat + "_input'/>"));
+                        }
                     }else{
                         $("#id" + nombreDat).append($("<input class='" + nombreDat + "' type='date' id='" + nombreDat + "_input'/>"));
 
@@ -79,6 +82,13 @@
                     $('#agregar').attr('disabled', false);
                 });
             });
+
+            // var numero = 56 / 100; //Un millón y 56 centésimas
+            // document
+            //     .getElementById('metadatos')
+            //     .innerHTML = new Intl.NumberFormat('es-MX').format(numero);
+
+            $("#minimo").mask('000,000,000.00',{reverse:true});
         });
     </script>
 </head>
@@ -92,9 +102,10 @@
 </div>
 <div id="texto">
     <h3>Agregar un campo de texto</h3>
-    <input type="text" id="nombre_text" placeholder="nombre de la etiqueta"/>
+    <input type="text" minlength="" id="nombre_text" placeholder="nombre de la etiqueta"/>
     <label> Requerido</label>
-    <input type="checkbox" id="requeridoText" value="Requerido">
+    <input type="checkbox" id="requeridoText" value="Requerido"/>
+    <input type="number" step="0.01" id="minimo">
     <button id="boton_agregar_texto">Agregar campo de texto</button>
 
 </div>
