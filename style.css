@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'ceda';
+    src:  url('fonts/ceda.eot?injfiw');
+    src:  url('fonts/ceda.eot?injfiw#iefix') format('embedded-opentype'),
+    url('fonts/ceda.ttf?injfiw') format('truetype'),
+    url('fonts/ceda.woff?injfiw') format('woff'),
+    url('fonts/ceda.svg?injfiw#ceda') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'ceda' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gobierno:before {
+    content: "\1f39a";
+    color: #fff;
+}
+.icon-admin_documental_c:before {
+    content: "\1f399";
+}
+.icon-seguridad_c:before {
+    content: "\e90f";
+}
+.icon-numeros_c:before {
+    content: "\e910";
+}
+.icon-moneda_c:before {
+    content: "\e911";
+}
+.icon-metadatos_c:before {
+    content: "\e912";
+}
+.icon-hora_c:before {
+    content: "\e913";
+}
+.icon-fecha_c:before {
+    content: "\e914";
+}
+.icon-fecha_hora_c:before {
+    content: "\e915";
+}
+.icon-cadena_c:before {
+    content: "\e916";
+}
+.icon-responsable_c:before {
+    content: "\e917";
+}
+.icon-organigrama_c:before {
+    content: "\e918";
+}
+.icon-tramite_c:before {
+    content: "\e919";
+}
+.icon-expediente_c:before {
+    content: "\e91a";
+}
+.icon-plantilla_c:before {
+    content: "\e91b";
+}
+.icon-admin_v:before {
+    content: "\e900";
+    color: #00b140;
+}
+.icon-cadena_v:before {
+    content: "\e901";
+    color: #00b140;
+}
+.icon-expediente_v:before {
+    content: "\e902";
+    color: #00b140;
+}
+.icon-fecha_v:before {
+    content: "\e903";
+    color: #00b140;
+}
+.icon-fechahora_v:before {
+    content: "\e904";
+    color: #00b140;
+}
+.icon-hora_v:before {
+    content: "\e905";
+    color: #00b140;
+}
+.icon-metadatos_v:before {
+    content: "\e906";
+    color: #00b140;
+}
+.icon-moneda_v:before {
+    content: "\e907";
+    color: #00b140;
+}
+.icon-numeros_v:before {
+    content: "\e908";
+    color: #00b140;
+}
+.icon-organigrama_v:before {
+    content: "\e909";
+    color: #00b140;
+}
+.icon-plantilla_v:before {
+    content: "\e90a";
+    color: #00b140;
+}
+.icon-responsable_v:before {
+    content: "\e90b";
+    color: #00b140;
+}
+.icon-seguridad_v:before {
+    content: "\e90c";
+    color: #00b140;
+}
+.icon-tramite_v:before {
+    content: "\e90d";
+    color: #00b140;
+}
